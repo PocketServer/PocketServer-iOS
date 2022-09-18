@@ -9,11 +9,11 @@ import SwiftUI
 
 /// The View to create and add a new Connection
 /// to the App.
-struct CreateConnection: View {
+internal struct CreateConnection: View {
 
     /// The Environment Variable to dismiss
     /// this View as a Sheet.
-    @Environment(\.dismiss) var dismissSheet
+    @Environment(\.dismiss) private var dismissSheet
 
     /// The Name of the new Connection
     @State private var name : String = ""
