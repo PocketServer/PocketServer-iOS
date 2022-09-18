@@ -35,7 +35,15 @@ internal struct Home: View {
                 .sheet(isPresented: $isSheetActive) {
                     CreateConnection()
                 }
-
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            isSheetActive = true
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                    }
+                }
         }
     }
 }

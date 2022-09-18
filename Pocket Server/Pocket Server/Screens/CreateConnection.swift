@@ -11,6 +11,8 @@ import SwiftUI
 /// to the App.
 struct CreateConnection: View {
 
+    /// The Environment Variable to dismiss
+    /// this View as a Sheet.
     @Environment(\.dismiss) var dismissSheet
 
     /// The Name of the new Connection
@@ -23,18 +25,19 @@ struct CreateConnection: View {
         NavigationView {
             VStack {
                 Text("Name")
-                TextField(
-                    "Name", text: $name)
+                TextField("Name", text: $name)
+                    .textInputAutocapitalization(.words)
 
                 Text("Name")
-                TextField(
-                    "URL", text: $url)
+                TextField("URL", text: $url)
+                    .textInputAutocapitalization(.never)
+
             }.navigationTitle("Create Connection")
                 .navigationBarTitleDisplayMode(.inline)
                 .padding(20)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
-                        Button("Cancel") {
+                        Button("Cancel", role: .cancel) {
                             dismissSheet()
                         }
                     }
@@ -44,6 +47,7 @@ struct CreateConnection: View {
                         }
                     }
                 }
+                .textFieldStyle(.roundedBorder)
                 .interactiveDismissDisabled(true)
         }
     }
