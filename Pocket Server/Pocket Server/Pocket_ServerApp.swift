@@ -11,7 +11,7 @@ import SwiftUI
 struct Pocket_ServerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Home()
         }
     }
 }

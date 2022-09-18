@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F12646028D7364E00E007A4 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F12645F28D7364E00E007A4 /* Connection.swift */; };
+		3F12646228D736C400E007A4 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F12646128D736C400E007A4 /* Storage.swift */; };
+		3F12646428D7375100E007A4 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F12646328D7375100E007A4 /* Home.swift */; };
+		3F12646628D7386E00E007A4 /* CreateConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F12646528D7386E00E007A4 /* CreateConnection.swift */; };
 		3FAC744228D734A400E683BA /* Pocket_ServerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAC744128D734A400E683BA /* Pocket_ServerApp.swift */; };
 		3FAC744428D734A400E683BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAC744328D734A400E683BA /* ContentView.swift */; };
 		3FAC744628D734A500E683BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FAC744528D734A500E683BA /* Assets.xcassets */; };
@@ -34,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F12645F28D7364E00E007A4 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		3F12646128D736C400E007A4 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		3F12646328D7375100E007A4 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		3F12646528D7386E00E007A4 /* CreateConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateConnection.swift; sourceTree = "<group>"; };
 		3FAC743E28D734A400E683BA /* Pocket Server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Server.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FAC744128D734A400E683BA /* Pocket_ServerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pocket_ServerApp.swift; sourceTree = "<group>"; };
 		3FAC744328D734A400E683BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +79,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F12645C28D7363200E007A4 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				3FAC744328D734A400E683BA /* ContentView.swift */,
+				3F12646328D7375100E007A4 /* Home.swift */,
+				3F12646528D7386E00E007A4 /* CreateConnection.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		3F12645D28D7363D00E007A4 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				3F12646128D736C400E007A4 /* Storage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		3F12645E28D7364400E007A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3F12645F28D7364E00E007A4 /* Connection.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		3FAC743528D734A400E683BA = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +128,10 @@
 		3FAC744028D734A400E683BA /* Pocket Server */ = {
 			isa = PBXGroup;
 			children = (
+				3F12645E28D7364400E007A4 /* Models */,
+				3F12645D28D7363D00E007A4 /* Storage */,
+				3F12645C28D7363200E007A4 /* Screens */,
 				3FAC744128D734A400E683BA /* Pocket_ServerApp.swift */,
-				3FAC744328D734A400E683BA /* ContentView.swift */,
 				3FAC744528D734A500E683BA /* Assets.xcassets */,
 				3FAC744728D734A500E683BA /* Preview Content */,
 			);
@@ -258,6 +294,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FAC744428D734A400E683BA /* ContentView.swift in Sources */,
+				3F12646228D736C400E007A4 /* Storage.swift in Sources */,
+				3F12646428D7375100E007A4 /* Home.swift in Sources */,
+				3F12646628D7386E00E007A4 /* CreateConnection.swift in Sources */,
+				3F12646028D7364E00E007A4 /* Connection.swift in Sources */,
 				3FAC744228D734A400E683BA /* Pocket_ServerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
