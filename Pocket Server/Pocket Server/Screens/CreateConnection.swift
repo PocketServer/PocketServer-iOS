@@ -28,7 +28,7 @@ internal struct CreateConnection: View {
                 TextField("Name", text: $name)
                     .textInputAutocapitalization(.words)
 
-                Text("Name")
+                Text("URL")
                 TextField("URL", text: $url)
                     .textInputAutocapitalization(.never)
 
