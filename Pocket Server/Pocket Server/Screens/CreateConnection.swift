@@ -11,9 +11,7 @@ import SwiftUI
 /// to the App.
 internal struct CreateConnection: View {
 
-    /// The Environment Variable to dismiss
-    /// this View as a Sheet.
-    @Environment(\.dismiss) private var dismissSheet
+    @Environment(\.dismiss) private var dismiss
 
     /// The Name of the new Connection
     @State private var name : String = ""
@@ -38,12 +36,12 @@ internal struct CreateConnection: View {
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("Cancel", role: .cancel) {
-                            dismissSheet()
+                           dismiss()
                         }
                     }
                     ToolbarItem(placement: .confirmationAction) {
                         Button("Done") {
-                            dismissSheet()
+                           dismiss()
                         }
                     }
                 }
