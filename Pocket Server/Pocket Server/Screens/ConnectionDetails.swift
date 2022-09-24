@@ -9,24 +9,42 @@ import SwiftUI
 
 internal struct ConnectionDetail: View {
 
-    internal let connection : Connection
+    /// The Connection this Screen
+    /// represents
+    internal var connection : Connection
+
+    /// DIsmiss Function for this Sheet.
+    @Environment(\.dismiss) private var dismissSheet
+
+    init(connection: Connection) {
+        self.connection = connection
+        self.connection.lastConnected = Date()
+        print(self.connection.lastConnected)
+    }
+
+
 
     var body: some View {
         NavigationView {
             VStack {
-                Text(connection.name)
-                Text(connection.url.absoluteString)
+                List {
+                    ListElement(name: "Name", value: connection.name)
+                    ListElement(name: "URL", value: connection.url.absoluteString)
+                    ListElement(name: "Password", value: connection.password, obscure: true)
+                    ListElement(name: "Date", value:
+                                    Text(connection.lastConnected, style: .date))
+                }
             }.navigationTitle(connection.name)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("Cancel", role: .cancel) {
-
+                            dismissSheet()
                         }
                     }
                     ToolbarItem(placement: .confirmationAction) {
                         Button("Done", role: .none) {
-
+                            dismissSheet()
                         }
                     }
                 }
@@ -36,8 +54,6 @@ internal struct ConnectionDetail: View {
 
 struct ConnectionDetail_Previews: PreviewProvider {
     static var previews: some View {
-        ConnectionDetail(
-            connection: Connection(name: "Test", url: URL(fileURLWithPath: ""))
-            )
+        ConnectionDetail(connection: nilConnection)
     }
 }

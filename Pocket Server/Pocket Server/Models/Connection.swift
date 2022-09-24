@@ -17,6 +17,30 @@ internal struct Connection : Identifiable {
     /// The Name of this Connection
     internal let name : String
 
+    /// The Password to this Servers Connection.
+    internal let password : String
+
     /// The URL of this Connection
     internal let url : URL
+
+    /// The Date the User last connected to the Server
+    internal var lastConnected : Date
+
+    /// Connects to the Server and
+    /// returns if the connection was
+    /// successful (true) or not (false)
+    internal func connect() -> Bool {
+        return false;
+    }
 }
+
+// TODO: Remove
+/// A Default Connection, that is not shown to
+/// the User.
+/// This is only used internal for Testing
+internal let nilConnection : Connection = Connection(
+    name: "Default Connection",
+    password: "Password",
+    url: URL(string: "github.com/Pocket-Server")!,
+    lastConnected: Date()
+)

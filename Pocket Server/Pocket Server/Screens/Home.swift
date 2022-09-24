@@ -15,32 +15,37 @@ internal struct Home: View {
     /// The Variable that determines whether the
     /// Sheet is active or not.
     @State private var isSheetActive = false
-    @State private var isCreateSheet = false
+
+    /// The Connection the User tapped on.
+    @State private var connection : Connection?
     
     
     var body: some View {
         NavigationView {
             VStack {
-                if(Storage.recentConnections.isEmpty) {
+                if Storage.recentConnections.isEmpty {
                     Spacer()
                     Text("No recent Connections")
                     Spacer()
                     Button("Create one") {
-                        isCreateSheet = true
-                        isSheetActive = true
+                        isSheetActive = false
+                        Storage.recentConnections.append(nilConnection)
                     }
                 } else {
-                    ForEach(Storage.recentConnections) { connection in
-                        Button {
-                            isCreateSheet = false
-                            isSheetActive = true
-                        } label: {
-                            Text(connection.name)
-                        }
+                    List(Storage.recentConnections) {
+                        connection in
+                        Text(connection.name)
+                            .onTapGesture {
+                                self.connection = connection
+                            }
+                            .sheet(item: $connection) {_ in
+                                ConnectionDetail(connection: self.connection ?? nilConnection)
+                            }
                     }
                 }
             }.navigationTitle("Welcome")
                 .navigationBarTitleDisplayMode(.automatic)
+
                 .sheet(isPresented: $isSheetActive) {
                     CreateConnection()
                 }
@@ -48,7 +53,6 @@ internal struct Home: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             isSheetActive = true
-                            isCreateSheet = true
                         } label: {
                             Image(systemName: "plus")
                         }

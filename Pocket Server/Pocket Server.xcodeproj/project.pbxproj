@@ -12,6 +12,7 @@
 		3F12646428D7375100E007A4 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F12646328D7375100E007A4 /* Home.swift */; };
 		3F12646628D7386E00E007A4 /* CreateConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F12646528D7386E00E007A4 /* CreateConnection.swift */; };
 		3F12646828D73C5600E007A4 /* ConnectionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F12646728D73C5600E007A4 /* ConnectionDetails.swift */; };
+		3F4BF27328DF2F8200D20B5B /* ListElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4BF27228DF2F8200D20B5B /* ListElement.swift */; };
 		3FAC744228D734A400E683BA /* Pocket_ServerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAC744128D734A400E683BA /* Pocket_ServerApp.swift */; };
 		3FAC744428D734A400E683BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAC744328D734A400E683BA /* ContentView.swift */; };
 		3FAC744628D734A500E683BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FAC744528D734A500E683BA /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		3F12646328D7375100E007A4 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		3F12646528D7386E00E007A4 /* CreateConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateConnection.swift; sourceTree = "<group>"; };
 		3F12646728D73C5600E007A4 /* ConnectionDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDetails.swift; sourceTree = "<group>"; };
+		3F4BF27228DF2F8200D20B5B /* ListElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListElement.swift; sourceTree = "<group>"; };
 		3FAC743E28D734A400E683BA /* Pocket Server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Server.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FAC744128D734A400E683BA /* Pocket_ServerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pocket_ServerApp.swift; sourceTree = "<group>"; };
 		3FAC744328D734A400E683BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F023C7A28DB17D5004FC394 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3F4BF27228DF2F8200D20B5B /* ListElement.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		3F12645C28D7363200E007A4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +141,7 @@
 		3FAC744028D734A400E683BA /* Pocket Server */ = {
 			isa = PBXGroup;
 			children = (
+				3F023C7A28DB17D5004FC394 /* Components */,
 				3F12645E28D7364400E007A4 /* Models */,
 				3F12645D28D7363D00E007A4 /* Storage */,
 				3F12645C28D7363200E007A4 /* Screens */,
@@ -298,6 +309,7 @@
 			files = (
 				3F12646828D73C5600E007A4 /* ConnectionDetails.swift in Sources */,
 				3FAC744428D734A400E683BA /* ContentView.swift in Sources */,
+				3F4BF27328DF2F8200D20B5B /* ListElement.swift in Sources */,
 				3F12646228D736C400E007A4 /* Storage.swift in Sources */,
 				3F12646428D7375100E007A4 /* Home.swift in Sources */,
 				3F12646628D7386E00E007A4 /* CreateConnection.swift in Sources */,
@@ -464,6 +476,7 @@
 				DEVELOPMENT_TEAM = Q87UDX5898;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -493,6 +506,7 @@
 				DEVELOPMENT_TEAM = Q87UDX5898;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

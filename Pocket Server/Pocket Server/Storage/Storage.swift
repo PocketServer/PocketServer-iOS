@@ -13,10 +13,10 @@ import Foundation
 internal struct Storage {
 
     /// The List of all Connections used in this App.
-    internal static let allConnections : [Connection] = []
+    internal static var allConnections : [Connection] = []
 
     /// A list of all the recent Connections.
-    internal static let recentConnections : [Connection] = []
+    internal static var recentConnections : [Connection] = [nilConnection]
 
     /// The Default Storage this App is using to store all of it's Data.
     private static let userDefaults : UserDefaults = UserDefaults.standard

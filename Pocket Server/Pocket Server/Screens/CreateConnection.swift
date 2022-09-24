@@ -11,6 +11,7 @@ import SwiftUI
 /// to the App.
 internal struct CreateConnection: View {
 
+    /// Dismiss Function to dismiss Sheet.
     @Environment(\.dismiss) private var dismiss
 
     /// The Name of the new Connection
