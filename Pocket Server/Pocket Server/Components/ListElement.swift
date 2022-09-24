@@ -7,13 +7,25 @@
 
 import SwiftUI
 
+/// A single Element in a List.
+/// Mostly used to display Conenction Details.
+///
 struct ListElement: View {
 
+    /// The Name of this Detail.
     private let name : String
 
+    /// The Value of
+    /// this Element
     private let value : Any
 
+    /// Whether to obscure the
+    /// Text or not.
+    /// Only available
+    /// if the value is a Text
     private let obscure : Bool
+
+    @State private var passwordShown : Bool = false
 
     init(name: String, value: Text) {
         self.name = name
@@ -33,7 +45,20 @@ struct ListElement: View {
             Spacer()
             if value is String {
                 if obscure {
-                    Text("**********")
+                    Menu(passwordShown ? value as! String : "**********") {
+                        Button {
+                            passwordShown.toggle()
+                        } label: {
+                            if passwordShown {
+                                Text("Hide Passwort")
+                            } else {
+                                Text("Show Password")
+                            }
+                        }
+                        Button("Copy") {
+                            UIPasteboard.general.string = value as? String
+                        }
+                    }.foregroundColor(.primary)
                 } else {
                     Text(value as! String)
                 }
@@ -47,6 +72,6 @@ struct ListElement: View {
 struct ListElement_Previews: PreviewProvider {
     static var previews: some View {
         ListElement(
-            name: "Name", value: "Value")
+            name: "Name", value: "Value", obscure: true)
     }
 }

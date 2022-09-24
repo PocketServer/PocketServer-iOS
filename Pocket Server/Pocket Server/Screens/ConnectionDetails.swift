@@ -18,8 +18,6 @@ internal struct ConnectionDetail: View {
 
     init(connection: Connection) {
         self.connection = connection
-        self.connection.lastConnected = Date()
-        print(self.connection.lastConnected)
     }
 
 
