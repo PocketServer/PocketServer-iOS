@@ -18,7 +18,13 @@ internal struct CreateConnection: View {
     @State private var name : String = ""
 
     /// The URL to that new Connection.
-    @State private var url : String = ""
+    @State private var urlString : String = ""
+
+    /// The password for the new Connection.
+    @State private var password : String = ""
+
+    /// The date the App last connected to this Connection.
+    @State private var date : Date = Date.now
 
     var body: some View {
         NavigationView {
@@ -28,7 +34,7 @@ internal struct CreateConnection: View {
                     .textInputAutocapitalization(.words)
 
                 Text("URL")
-                TextField("URL", text: $url)
+                TextField("URL", text: $urlString)
                     .textInputAutocapitalization(.never)
 
             }.navigationTitle("Create Connection")
@@ -37,12 +43,16 @@ internal struct CreateConnection: View {
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("Cancel", role: .cancel) {
-                           dismiss()
+                            dismiss()
                         }
                     }
                     ToolbarItem(placement: .confirmationAction) {
                         Button("Done") {
-                           dismiss()
+                            Storage.allConnections.append(
+                                Connection(
+                                    name: name, password: password , url: URL(string: urlString), lastConnected: date
+                                ))
+                            dismiss()
                         }
                     }
                 }

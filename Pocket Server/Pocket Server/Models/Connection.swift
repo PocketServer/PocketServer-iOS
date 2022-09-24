@@ -21,7 +21,7 @@ internal struct Connection : Identifiable {
     internal let password : String
 
     /// The URL of this Connection
-    internal let url : URL
+    internal let url : URL?
 
     /// The Date the User last connected to the Server
     internal var lastConnected : Date

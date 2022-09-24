@@ -23,13 +23,12 @@ internal struct Home: View {
     var body: some View {
         NavigationView {
             VStack {
-                if Storage.recentConnections.isEmpty {
+                if Storage.allConnections.isEmpty {
                     Spacer()
                     Text("No recent Connections")
                     Spacer()
                     Button("Create one") {
-                        isSheetActive = false
-                        Storage.recentConnections.append(nilConnection)
+                        isSheetActive = true
                     }
                 } else {
                     List(Storage.recentConnections) {
@@ -45,7 +44,6 @@ internal struct Home: View {
                 }
             }.navigationTitle("Welcome")
                 .navigationBarTitleDisplayMode(.automatic)
-
                 .sheet(isPresented: $isSheetActive) {
                     CreateConnection()
                 }

@@ -25,14 +25,19 @@ struct ListElement: View {
     /// if the value is a Text
     private let obscure : Bool
 
+    /// Whether the Password is shown or not.
     @State private var passwordShown : Bool = false
 
+    /// Initializer with an extra Text View
+    /// as Value
     init(name: String, value: Text) {
         self.name = name
         self.value = value
         obscure = false
     }
 
+    /// Default Initializer with a String as a value.
+    /// The obscure Parameter tells the View whether to obscure and hide the Value or not.
     init(name: String, value: String, obscure: Bool = false) {
         self.name = name
         self.value = value

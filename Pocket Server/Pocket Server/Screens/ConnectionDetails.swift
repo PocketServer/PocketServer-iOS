@@ -27,7 +27,7 @@ internal struct ConnectionDetail: View {
             VStack {
                 List {
                     ListElement(name: "Name", value: connection.name)
-                    ListElement(name: "URL", value: connection.url.absoluteString)
+                    ListElement(name: "URL", value: connection.url?.absoluteString ?? "")
                     ListElement(name: "Password", value: connection.password, obscure: true)
                     ListElement(name: "Date", value:
                                     Text(connection.lastConnected, style: .date))

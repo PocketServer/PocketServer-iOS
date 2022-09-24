@@ -16,7 +16,7 @@ internal struct Storage {
     internal static var allConnections : [Connection] = []
 
     /// A list of all the recent Connections.
-    internal static var recentConnections : [Connection] = [nilConnection]
+    internal static var recentConnections : [Connection] = []
 
     /// The Default Storage this App is using to store all of it's Data.
     private static let userDefaults : UserDefaults = UserDefaults.standard
