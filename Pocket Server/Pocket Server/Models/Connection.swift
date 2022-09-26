@@ -11,11 +11,22 @@ import Foundation
 /// used and created by this App.
 internal struct Connection : Identifiable {
 
+    init(name : String, description : String = "", password : String, url : URL?, lastConnected : Date) {
+        self.name = name
+        self.description = description
+        self.password = password
+        self.url = url
+        self.lastConnected = lastConnected
+    }
+
     /// An ID to identify this Object.
     internal let id : UUID = UUID()
 
     /// The Name of this Connection
     internal let name : String
+
+    /// A closer and more detailed Description to this Connection
+    internal var description : String = ""
 
     /// The Password to this Servers Connection.
     internal let password : String
@@ -40,6 +51,7 @@ internal struct Connection : Identifiable {
 /// This is only used internal for Testing
 internal let nilConnection : Connection = Connection(
     name: "Default Connection",
+    description: "This is a very long description. I don't know what to type, but it is a lot of text",
     password: "Password",
     url: URL(string: "github.com/Pocket-Server")!,
     lastConnected: Date()

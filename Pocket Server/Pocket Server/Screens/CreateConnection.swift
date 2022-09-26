@@ -11,6 +11,7 @@ import SwiftUI
 /// to the App.
 internal struct CreateConnection: View {
 
+
     /// Dismiss Function to dismiss Sheet.
     @Environment(\.dismiss) private var dismiss
 
@@ -23,23 +24,31 @@ internal struct CreateConnection: View {
     /// The password for the new Connection.
     @State private var password : String = ""
 
-    /// The date the App last connected to this Connection.
-    @State private var date : Date = Date.now
+    /// A closer and more detailed Description to this Connection
+    @State private var description : String = ""
+
+    /// Wether the Alert Dialog is presented or not.
+    @State private var alertPresented : Bool = false
 
     var body: some View {
         NavigationView {
-            VStack {
-                Text("Name")
-                TextField("Name", text: $name)
-                    .textInputAutocapitalization(.words)
+            List {
+                Section("Required") {
+                    TextField("Name", text: $name)
+                        .textInputAutocapitalization(.words)
 
-                Text("URL")
-                TextField("URL", text: $urlString)
-                    .textInputAutocapitalization(.never)
+                    TextField("URL", text: $urlString)
+                        .textInputAutocapitalization(.never)
 
+                    SecureField("Password", text: $password)
+                        .textInputAutocapitalization(.words)
+                }
+                Section("Optional") {
+                    TextField("Description", text: $description)
+                        .textInputAutocapitalization(.sentences)
+                }
             }.navigationTitle("Create Connection")
                 .navigationBarTitleDisplayMode(.inline)
-                .padding(20)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("Cancel", role: .cancel) {
@@ -48,22 +57,41 @@ internal struct CreateConnection: View {
                     }
                     ToolbarItem(placement: .confirmationAction) {
                         Button("Done") {
-                            Storage.allConnections.append(
-                                Connection(
-                                    name: name, password: password , url: URL(string: urlString), lastConnected: date
-                                ))
-                            dismiss()
+                            if check() {
+                                Storage.standard.recentConnections.append(
+                                    Connection(
+                                        name: name,
+                                        description: description,
+                                        password: password , url: URL(string: urlString), lastConnected: Date.now
+                                    ))
+                                dismiss()
+                            } else {
+                                alertPresented = true
+                            }
+
                         }
                     }
                 }
-                .textFieldStyle(.roundedBorder)
-                .interactiveDismissDisabled(true)
+                .interactiveDismissDisabled(false)
+                .alert("Empty Fields",
+                       isPresented: $alertPresented) {
+                    Button("OK", role: .cancel) {}
+                } message: {
+                    Text("Not all required fields are filled in.")
+                }
         }
+    }
+
+    /// Checks if all required variables
+    /// are set and returns true if so. Otherwise false
+    /// is returned.
+    private func check() -> Bool {
+        return !name.isEmpty && !urlString.isEmpty && !password.isEmpty
     }
 }
 
 struct CreateConnection_Previews: PreviewProvider {
     static var previews: some View {
-        CreateConnection()
+        CreateConnection( )
     }
 }

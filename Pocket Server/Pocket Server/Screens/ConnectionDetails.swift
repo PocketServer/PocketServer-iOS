@@ -31,6 +31,7 @@ internal struct ConnectionDetail: View {
                     ListElement(name: "Password", value: connection.password, obscure: true)
                     ListElement(name: "Date", value:
                                     Text(connection.lastConnected, style: .date))
+                    ListElement(name: "Description", value: connection.description)
                 }
             }.navigationTitle(connection.name)
                 .navigationBarTitleDisplayMode(.inline)

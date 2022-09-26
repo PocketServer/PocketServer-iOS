@@ -66,6 +66,7 @@ struct ListElement: View {
                     }.foregroundColor(.primary)
                 } else {
                     Text(value as! String)
+                        .multilineTextAlignment(.leading)
                 }
             } else {
                 value as! Text

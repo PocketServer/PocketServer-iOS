@@ -14,32 +14,36 @@ internal struct Home: View {
     
     /// The Variable that determines whether the
     /// Sheet is active or not.
-    @State private var isSheetActive = false
+    @State private var isSheetActive : Bool = false
 
     /// The Connection the User tapped on.
     @State private var connection : Connection?
-    
+
+    /// The Default Storage Object for
+    /// this View
+    @ObservedObject private var storage : Storage = Storage.standard
     
     var body: some View {
         NavigationView {
             VStack {
-                if Storage.allConnections.isEmpty {
+                if storage.recentConnections.isEmpty {
                     Spacer()
                     Text("No recent Connections")
                     Spacer()
-                    Button("Create one") {
-                        isSheetActive = true
-                    }
                 } else {
-                    List(Storage.recentConnections) {
+                    List(storage.recentConnections) {
                         connection in
-                        Text(connection.name)
-                            .onTapGesture {
-                                self.connection = connection
-                            }
-                            .sheet(item: $connection) {_ in
-                                ConnectionDetail(connection: self.connection ?? nilConnection)
-                            }
+                        HStack {
+                            Text(connection.name)
+                            Spacer()
+                        }
+                        .background(.background)
+                        .onTapGesture {
+                            self.connection = connection
+                        }
+                        .sheet(item: $connection) {_ in
+                            ConnectionDetail(connection: connection)
+                        }
                     }
                 }
             }.navigationTitle("Welcome")
@@ -48,12 +52,20 @@ internal struct Home: View {
                     CreateConnection()
                 }
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItem(placement: .bottomBar) {
+                        Button("Create one") {
+                            isSheetActive.toggle()
+                        }
+                    }
+                    ToolbarItem(placement: .navigation) {
                         Button {
-                            isSheetActive = true
+                            isSheetActive.toggle()
                         } label: {
                             Image(systemName: "plus")
                         }
+                    }
+                    ToolbarItem(placement: .primaryAction) {
+                        EditButton()
                     }
                 }
         }
