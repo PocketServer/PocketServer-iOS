@@ -41,7 +41,7 @@ internal struct CreateConnection: View {
                         .textInputAutocapitalization(.never)
 
                     SecureField("Password", text: $password)
-                        .textInputAutocapitalization(.words)
+                        .textInputAutocapitalization(.never)
                 }
                 Section("Optional") {
                     TextField("Description", text: $description)

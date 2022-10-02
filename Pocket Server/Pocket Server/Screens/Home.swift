@@ -22,6 +22,9 @@ internal struct Home: View {
     /// The Default Storage Object for
     /// this View
     @ObservedObject private var storage : Storage = Storage.standard
+
+
+    @Environment(\.isPresented) private var isPresented
     
     var body: some View {
         NavigationView {
